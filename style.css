@@ -1,0 +1,181 @@
+/* ===== 全体の基本設定 ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 40px 24px;
+  background-color: #f4f8fc;
+  color: #2c3e50;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
+  line-height: 1.6;
+}
+
+/* ===== レイアウト（左：入力 / 右：表示） ===== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  grid-template-areas:
+    "title title"
+    "form  summary"
+    "form  list";
+  gap: 24px;
+  align-items: start;
+}
+
+h1 {
+  grid-area: title;
+}
+
+.form-area {
+  grid-area: form;
+}
+
+.summary {
+  grid-area: summary;
+}
+
+.list-area {
+  grid-area: list;
+}
+
+/* ===== 見出し ===== */
+h1 {
+  margin: 0;
+  padding-bottom: 12px;
+  font-size: 26px;
+  color: #1f3a5f;
+  border-bottom: 3px solid #a9c8e8;
+}
+
+h2 {
+  margin: 0 0 20px;
+  padding-left: 12px;
+  font-size: 18px;
+  color: #1f3a5f;
+  border-left: 4px solid #5b8fc7;
+}
+
+/* ===== 各エリアを白いカードにする ===== */
+.summary,
+.form-area,
+.list-area {
+  background-color: #ffffff;
+  border: 1px solid #dce6f0;
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== 合計金額 ===== */
+.summary p {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 1px dashed #dce6f0;
+}
+
+.summary span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1f3a5f;
+}
+
+.summary p:last-child {
+  margin-top: 8px;
+  padding: 12px 16px;
+  background-color: #eaf2fb;
+  border-bottom: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+/* ===== 入力フォーム ===== */
+.form-area form > div {
+  margin-bottom: 22px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  color: inherit;
+  background-color: #ffffff;
+  border: 1px solid #c5d5e6;
+  border-radius: 6px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #5b8fc7;
+  box-shadow: 0 0 0 3px rgba(91, 143, 199, 0.2);
+}
+
+button {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #4a7fb8;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3a6a9f;
+}
+
+/* ===== 一覧テーブル ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #e3ebf3;
+}
+
+th {
+  background-color: #eaf2fb;
+  color: #1f3a5f;
+}
+
+th:last-child,
+td:last-child {
+  text-align: right;
+}
+
+tbody tr:hover {
+  background-color: #f7fafd;
+}
+
+/* ===== 画面が狭いときは縦1列にする ===== */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "form"
+      "summary"
+      "list";
+  }
+}
